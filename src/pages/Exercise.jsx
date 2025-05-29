@@ -15,6 +15,10 @@ export default function Exercise() {
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
+    if (!file.name.startsWith('Exercise-')) {
+      setError("Please upload a file that starts with 'Exercise-'.");
+      return;
+    }
     Papa.parse(file, {
       header: true,
       skipEmptyLines: true,

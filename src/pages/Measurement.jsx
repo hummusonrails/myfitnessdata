@@ -15,6 +15,10 @@ export default function Measurement() {
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
+    if (!file.name.startsWith('Measurement-')) {
+      setError("Please upload a file that starts with 'Measurement-'.");
+      return;
+    }
     Papa.parse(file, {
       header: true,
       skipEmptyLines: true,

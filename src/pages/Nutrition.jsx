@@ -15,6 +15,10 @@ export default function Nutrition() {
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
+    if (!file.name.startsWith('Nutrition-')) {
+      setError("Please upload a file that starts with 'Nutrition-'.");
+      return;
+    }
     Papa.parse(file, {
       header: true,
       skipEmptyLines: true,
