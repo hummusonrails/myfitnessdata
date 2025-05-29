@@ -6,6 +6,7 @@ import Exercise from './pages/Exercise';
 import Interplay from './pages/Interplay';
 import Landing from './pages/Landing';
 import Footer from './components/Footer';
+import Privacy from './pages/Privacy';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/measurement" element={<Measurement />} />
             <Route path="/exercise" element={<Exercise />} />
             <Route path="/interplay" element={<Interplay />} />
+            <Route path="/privacy" element={<Privacy />} />
           </Routes>
         </main>
         <Footer />
