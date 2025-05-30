@@ -49,8 +49,10 @@ export default function Landing() {
           <p className="text-xl text-gray-700 max-w-xl mx-auto text-center">
             Instantly visualize, analyze, and <span className="font-semibold text-blue-700">chat with your nutrition, exercise, and measurement data</span> using ChatGPT.
             <br />
+            <span className="text-base text-gray-700 block mt-4 font-semibold">All your data is stored locally in your browser—your privacy is preserved.*</span>
             <span className="text-sm text-blue-700 block mt-2">To use the chat feature, you'll need your own <a href="https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key" target="_blank" rel="noopener noreferrer" className="underline font-medium">OpenAI API key</a>.</span>
           </p>
+          
           <p className="text-base text-gray-600 text-center">Export your data as CSV files from MyFitnessPal. <a href="https://support.myfitnesspal.com/hc/en-us/articles/360032273352-Data-Export-FAQs" className="text-blue-600 underline font-medium" target="_blank" rel="noopener noreferrer">How to export?</a></p>
         </div>
         {allUploaded ? (
@@ -145,6 +147,9 @@ export default function Landing() {
           </>
         )}
       </div>
+      <p className="text-xs text-gray-500 mt-8 text-center w-full">
+        *Except when using the <span className="font-semibold">Chat with Your Data</span> feature, which sends your data to OpenAI's servers for processing.
+      </p>
     </div>
   );
 }
