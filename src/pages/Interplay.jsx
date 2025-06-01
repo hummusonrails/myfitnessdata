@@ -64,7 +64,7 @@ function mergeData(nutrition, measurement, exercise) {
   // Merge by date, assuming Date is the key
   return (measurement || []).map(m => {
     const day = m.Date;
-    const nutritionDay = (nutrition || []).find(n => n[Object.keys(n)[0]] === day || n.Date === day);
+    const nutritionDay = (nutrition || []).find(n => n.Date === day);
     const exerciseDay = (exercise || []).find(e => e.Date === day);
     return {
       date: day,

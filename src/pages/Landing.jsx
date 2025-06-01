@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Papa from 'papaparse';
 import { useData } from '../context/DataContext';
 import BackgroundScribbles from '../components/BackgroundScribbles';
+import HeroDescription from '../components/HeroDescription';
 
 export default function Landing() {
   const { nutrition, setNutrition, measurement, setMeasurement, exercise, setExercise, resetAll } = useData();
@@ -46,14 +47,7 @@ export default function Landing() {
           <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-4 text-gray-900 text-center">
             Visualize &amp; <span className="text-blue-600">Chat with</span> Your MyFitnessPal Data
           </h1>
-          <p className="text-xl text-gray-700 max-w-xl mx-auto text-center">
-            Instantly visualize, analyze, and <span className="font-semibold text-blue-700">chat with your nutrition, exercise, and measurement data</span> using ChatGPT.
-            <br />
-            <span className="text-base text-gray-700 block mt-4 font-semibold">All your data is stored locally in your browser—your privacy is preserved.*</span>
-            <span className="text-sm text-blue-700 block mt-2">To use the chat feature, you'll need your own <a href="https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key" target="_blank" rel="noopener noreferrer" className="underline font-medium">OpenAI API key</a>.</span>
-          </p>
-          
-          <p className="text-base text-gray-600 text-center">Export your data as CSV files from MyFitnessPal. <a href="https://support.myfitnesspal.com/hc/en-us/articles/360032273352-Data-Export-FAQs" className="text-blue-600 underline font-medium" target="_blank" rel="noopener noreferrer">How to export?</a></p>
+          <HeroDescription />
         </div>
         {allUploaded ? (
           <div className="bg-white/95 rounded-2xl shadow-xl px-8 py-10 flex flex-col gap-8 w-full max-w-lg border border-gray-100 items-center">
@@ -66,7 +60,10 @@ export default function Landing() {
                 <span role="img" aria-label="Measurement">📏</span> Measurement Data
               </a>
               <a href="/exercise" className="flex items-center gap-3 px-5 py-3 rounded-lg bg-yellow-100 hover:bg-yellow-200 text-yellow-900 font-semibold text-lg shadow transition">
-                <span role="img" aria-label="Exercise">🏋️</span> Exercise Data
+                <span role="img" aria-label="Exercise">🏋️‍♂️</span> Exercise Data
+              </a>
+              <a href="/report" className="flex items-center gap-3 px-5 py-3 rounded-lg bg-lime-100 hover:bg-lime-200 text-green-800 font-semibold text-lg shadow transition border border-lime-300">
+                <span role="img" aria-label="Report">📝</span> Personal Nutrition Report
               </a>
             </div>
             <div className="flex flex-col items-center gap-2 mt-4 w-full">

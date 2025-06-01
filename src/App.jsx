@@ -1,4 +1,5 @@
 import React from 'react';
+import { useData } from './context/DataContext';
 import { BrowserRouter as Router, Routes, Route, Link, NavLink, Navigate } from 'react-router-dom';
 import Nutrition from './pages/Nutrition';
 import Measurement from './pages/Measurement';
@@ -7,8 +8,13 @@ import Interplay from './pages/Interplay';
 import Landing from './pages/Landing';
 import Footer from './components/Footer';
 import Privacy from './pages/Privacy';
+import PersonalHealthReport from './pages/PersonalHealthReport';
 
 function App() {
+  const { nutrition, measurement, exercise } = useData();
+  const hasAllData = Array.isArray(nutrition) && nutrition.length > 0 &&
+    Array.isArray(measurement) && measurement.length > 0 &&
+    Array.isArray(exercise) && exercise.length > 0;
   return (
     <Router>
       <div className="min-h-screen bg-gray-50">
@@ -22,6 +28,11 @@ function App() {
               <NavLink to="/measurement" className={({ isActive }) => isActive ? 'text-blue-600 font-bold' : 'text-gray-700 hover:text-blue-600'}>Measurement</NavLink>
               <NavLink to="/exercise" className={({ isActive }) => isActive ? 'text-blue-600 font-bold' : 'text-gray-700 hover:text-blue-600'}>Exercise</NavLink>
               <NavLink to="/interplay" className={({ isActive }) => isActive ? 'text-blue-600 font-bold' : 'text-gray-700 hover:text-blue-600'}>Interplay</NavLink>
+              {hasAllData && (
+                <NavLink to="/personal-health-report" className={({ isActive }) => isActive ? 'text-green-700 font-bold' : 'text-gray-700 hover:text-green-700'}>
+                  Personal Nutrition Report
+                </NavLink>
+              )}
             </div>
           </div>
         </nav>
@@ -33,6 +44,7 @@ function App() {
             <Route path="/exercise" element={<Exercise />} />
             <Route path="/interplay" element={<Interplay />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/personal-health-report" element={<PersonalHealthReport />} />
           </Routes>
         </main>
         <Footer />

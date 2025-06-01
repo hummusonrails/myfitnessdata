@@ -3,7 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, Line
 import CollapsibleTable from '../components/CollapsibleTable';
 
 const nutritionCategories = [
-  'Fat', 'Carbohydrates (g)', 'Protein (g)', 'Sugar', 'Fiber', 'Sodium (mg)', 'Cholesterol',
+  'Fat (g)', 'Carbohydrates (g)', 'Protein (g)', 'Sugar', 'Fiber', 'Sodium (mg)', 'Cholesterol',
 ];
 
 const macroViews = [
@@ -30,7 +30,8 @@ export default function NutritionVisualizations({ data }) {
 
   // Aggregate by date
   const dailyData = data.reduce((acc, row) => {
-    const date = row[Object.keys(row)[0]];
+    const date = row.Date;
+    if (!date) return acc;
     if (!acc[date]) acc[date] = { date };
     nutritionCategories.forEach(cat => {
       acc[date][cat] = (acc[date][cat] || 0) + parseFloat(row[cat] || 0);
@@ -68,7 +69,7 @@ export default function NutritionVisualizations({ data }) {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="Fat" fill="#fbbf24" />
+                <Bar dataKey="Fat (g)" fill="#fbbf24" />
                 <Bar dataKey="Carbohydrates (g)" fill="#38bdf8" />
                 <Bar dataKey="Protein (g)" fill="#34d399" />
               </BarChart>

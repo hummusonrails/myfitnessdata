@@ -8,6 +8,7 @@ MyFitnessData lets you upload your exported CSV data from MyFitnessPal and insta
 
 ## Features
 - 📊 Upload CSVs for Nutrition, Measurement, and Exercise
+- 📝 Personal Nutrition Report with AI-powered insights and recommendations
 - 💬 Chat with your data using AI
 - 📅 Interplay visualizations across all your data
 - 🔒 All data stays in your browser
